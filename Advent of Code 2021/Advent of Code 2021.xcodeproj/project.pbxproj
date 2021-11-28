@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		043C8F0627541A4D008FF723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0527541A4D008FF723 /* AppDelegate.swift */; };
 		043C8F0827541A4D008FF723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0727541A4D008FF723 /* SceneDelegate.swift */; };
-		043C8F0A27541A4D008FF723 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0927541A4D008FF723 /* ViewController.swift */; };
-		043C8F0D27541A4D008FF723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043C8F0B27541A4D008FF723 /* Main.storyboard */; };
+		043C8F0A27541A4D008FF723 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0927541A4D008FF723 /* MainViewController.swift */; };
 		043C8F0F27541A4F008FF723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043C8F0E27541A4F008FF723 /* Assets.xcassets */; };
 		043C8F1227541A4F008FF723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043C8F1027541A4F008FF723 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +18,7 @@
 		043C8F0227541A4D008FF723 /* Advent of Code 2021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Advent of Code 2021.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		043C8F0527541A4D008FF723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043C8F0727541A4D008FF723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		043C8F0927541A4D008FF723 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		043C8F0C27541A4D008FF723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		043C8F0927541A4D008FF723 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		043C8F0E27541A4F008FF723 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		043C8F1127541A4F008FF723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		043C8F1327541A4F008FF723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +54,30 @@
 		043C8F0427541A4D008FF723 /* Advent of Code 2021 */ = {
 			isa = PBXGroup;
 			children = (
-				043C8F0527541A4D008FF723 /* AppDelegate.swift */,
-				043C8F0727541A4D008FF723 /* SceneDelegate.swift */,
-				043C8F0927541A4D008FF723 /* ViewController.swift */,
-				043C8F0B27541A4D008FF723 /* Main.storyboard */,
+				043C8F1A27541AF6008FF723 /* Main */,
+				043C8F1927541ADC008FF723 /* Supporting Files */,
 				043C8F0E27541A4F008FF723 /* Assets.xcassets */,
 				043C8F1027541A4F008FF723 /* LaunchScreen.storyboard */,
 				043C8F1327541A4F008FF723 /* Info.plist */,
 			);
 			path = "Advent of Code 2021";
+			sourceTree = "<group>";
+		};
+		043C8F1927541ADC008FF723 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				043C8F0527541A4D008FF723 /* AppDelegate.swift */,
+				043C8F0727541A4D008FF723 /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		043C8F1A27541AF6008FF723 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				043C8F0927541A4D008FF723 /* MainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +140,6 @@
 			files = (
 				043C8F1227541A4F008FF723 /* LaunchScreen.storyboard in Resources */,
 				043C8F0F27541A4F008FF723 /* Assets.xcassets in Resources */,
-				043C8F0D27541A4D008FF723 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				043C8F0A27541A4D008FF723 /* ViewController.swift in Sources */,
+				043C8F0A27541A4D008FF723 /* MainViewController.swift in Sources */,
 				043C8F0627541A4D008FF723 /* AppDelegate.swift in Sources */,
 				043C8F0827541A4D008FF723 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +159,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		043C8F0B27541A4D008FF723 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				043C8F0C27541A4D008FF723 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		043C8F1027541A4F008FF723 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,7 +298,6 @@
 				INFOPLIST_FILE = "Advent of Code 2021/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +325,6 @@
 				INFOPLIST_FILE = "Advent of Code 2021/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
