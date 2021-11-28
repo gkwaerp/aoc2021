@@ -9,21 +9,51 @@
 /* Begin PBXBuildFile section */
 		043C8F0627541A4D008FF723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0527541A4D008FF723 /* AppDelegate.swift */; };
 		043C8F0827541A4D008FF723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0727541A4D008FF723 /* SceneDelegate.swift */; };
-		043C8F0A27541A4D008FF723 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0927541A4D008FF723 /* MainViewController.swift */; };
+		043C8F0A27541A4D008FF723 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0927541A4D008FF723 /* CalendarViewController.swift */; };
 		043C8F0F27541A4F008FF723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043C8F0E27541A4F008FF723 /* Assets.xcassets */; };
 		043C8F1227541A4F008FF723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043C8F1027541A4F008FF723 /* LaunchScreen.storyboard */; };
-		043C8F1E2754244F008FF723 /* Day01VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F1D2754244F008FF723 /* Day01VC.swift */; };
+		043C8F2127542584008FF723 /* AoCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F2027542584008FF723 /* AoCVC.swift */; };
+		043C8F2327542BE3008FF723 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F2227542BE3008FF723 /* UIView+Ext.swift */; };
+		043C8F2527542CF3008FF723 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F2427542CF3008FF723 /* DateHelper.swift */; };
+		043C8F27275435F5008FF723 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F26275435F5008FF723 /* FileLoader.swift */; };
+		043C8F292754360D008FF723 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F282754360D008FF723 /* Math.swift */; };
+		043C8F2B2754363D008FF723 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F2A2754363D008FF723 /* Misc.swift */; };
+		043C8F2D27543667008FF723 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F2C27543667008FF723 /* String+Ext.swift */; };
+		043C8F2F27543679008FF723 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F2E27543679008FF723 /* Grid.swift */; };
+		043C8F3127543699008FF723 /* IntPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F3027543699008FF723 /* IntPoint.swift */; };
+		043C8F33275436B1008FF723 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F32275436B1008FF723 /* Direction.swift */; };
+		043C8F35275436ED008FF723 /* IntAStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F34275436ED008FF723 /* IntAStar.swift */; };
+		043C8F3727543712008FF723 /* PermutationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F3627543711008FF723 /* PermutationHelper.swift */; };
+		043C8F3927543730008FF723 /* TravellingSalesmanHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F3827543730008FF723 /* TravellingSalesmanHelper.swift */; };
+		043C8F3B27543747008FF723 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F3A27543747008FF723 /* Image.swift */; };
+		043C8F3D2754377C008FF723 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F3C2754377C008FF723 /* Node.swift */; };
+		043C8F4427543DA6008FF723 /* AdventDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F4327543DA6008FF723 /* AdventDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		043C8F0227541A4D008FF723 /* Advent of Code 2021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Advent of Code 2021.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		043C8F0527541A4D008FF723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043C8F0727541A4D008FF723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		043C8F0927541A4D008FF723 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		043C8F0927541A4D008FF723 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		043C8F0E27541A4F008FF723 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		043C8F1127541A4F008FF723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		043C8F1327541A4F008FF723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		043C8F1D2754244F008FF723 /* Day01VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day01VC.swift; sourceTree = "<group>"; };
+		043C8F2027542584008FF723 /* AoCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AoCVC.swift; sourceTree = "<group>"; };
+		043C8F2227542BE3008FF723 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		043C8F2427542CF3008FF723 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		043C8F26275435F5008FF723 /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
+		043C8F282754360D008FF723 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		043C8F2A2754363D008FF723 /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		043C8F2C27543667008FF723 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		043C8F2E27543679008FF723 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		043C8F3027543699008FF723 /* IntPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntPoint.swift; sourceTree = "<group>"; };
+		043C8F32275436B1008FF723 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		043C8F34275436ED008FF723 /* IntAStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntAStar.swift; sourceTree = "<group>"; };
+		043C8F3627543711008FF723 /* PermutationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermutationHelper.swift; sourceTree = "<group>"; };
+		043C8F3827543730008FF723 /* TravellingSalesmanHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravellingSalesmanHelper.swift; sourceTree = "<group>"; };
+		043C8F3A27543747008FF723 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		043C8F3C2754377C008FF723 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		043C8F4327543DA6008FF723 /* AdventDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventDay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +86,9 @@
 		043C8F0427541A4D008FF723 /* Advent of Code 2021 */ = {
 			isa = PBXGroup;
 			children = (
-				043C8F1B2754243C008FF723 /* Days */,
-				043C8F1A27541AF6008FF723 /* Main */,
+				043C8F4227543C70008FF723 /* Extensions */,
+				043C8F1F27542578008FF723 /* Helpers */,
+				043C8F1A27541AF6008FF723 /* CalendarViewController */,
 				043C8F1927541ADC008FF723 /* Supporting Files */,
 				043C8F0E27541A4F008FF723 /* Assets.xcassets */,
 				043C8F1027541A4F008FF723 /* LaunchScreen.storyboard */,
@@ -75,28 +106,42 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		043C8F1A27541AF6008FF723 /* Main */ = {
+		043C8F1A27541AF6008FF723 /* CalendarViewController */ = {
 			isa = PBXGroup;
 			children = (
-				043C8F0927541A4D008FF723 /* MainViewController.swift */,
+				043C8F0927541A4D008FF723 /* CalendarViewController.swift */,
 			);
-			path = Main;
+			path = CalendarViewController;
 			sourceTree = "<group>";
 		};
-		043C8F1B2754243C008FF723 /* Days */ = {
+		043C8F1F27542578008FF723 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				043C8F1C27542443008FF723 /* Day01 */,
+				043C8F4327543DA6008FF723 /* AdventDay.swift */,
+				043C8F2027542584008FF723 /* AoCVC.swift */,
+				043C8F26275435F5008FF723 /* FileLoader.swift */,
+				043C8F2427542CF3008FF723 /* DateHelper.swift */,
+				043C8F282754360D008FF723 /* Math.swift */,
+				043C8F32275436B1008FF723 /* Direction.swift */,
+				043C8F3027543699008FF723 /* IntPoint.swift */,
+				043C8F2E27543679008FF723 /* Grid.swift */,
+				043C8F3A27543747008FF723 /* Image.swift */,
+				043C8F34275436ED008FF723 /* IntAStar.swift */,
+				043C8F3C2754377C008FF723 /* Node.swift */,
+				043C8F2A2754363D008FF723 /* Misc.swift */,
+				043C8F3627543711008FF723 /* PermutationHelper.swift */,
+				043C8F3827543730008FF723 /* TravellingSalesmanHelper.swift */,
 			);
-			path = Days;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
-		043C8F1C27542443008FF723 /* Day01 */ = {
+		043C8F4227543C70008FF723 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				043C8F1D2754244F008FF723 /* Day01VC.swift */,
+				043C8F2227542BE3008FF723 /* UIView+Ext.swift */,
+				043C8F2C27543667008FF723 /* String+Ext.swift */,
 			);
-			path = Day01;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,10 +214,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				043C8F1E2754244F008FF723 /* Day01VC.swift in Sources */,
-				043C8F0A27541A4D008FF723 /* MainViewController.swift in Sources */,
+				043C8F2127542584008FF723 /* AoCVC.swift in Sources */,
+				043C8F4427543DA6008FF723 /* AdventDay.swift in Sources */,
+				043C8F3B27543747008FF723 /* Image.swift in Sources */,
+				043C8F3927543730008FF723 /* TravellingSalesmanHelper.swift in Sources */,
+				043C8F35275436ED008FF723 /* IntAStar.swift in Sources */,
+				043C8F3127543699008FF723 /* IntPoint.swift in Sources */,
+				043C8F292754360D008FF723 /* Math.swift in Sources */,
+				043C8F3D2754377C008FF723 /* Node.swift in Sources */,
+				043C8F2B2754363D008FF723 /* Misc.swift in Sources */,
+				043C8F27275435F5008FF723 /* FileLoader.swift in Sources */,
+				043C8F2327542BE3008FF723 /* UIView+Ext.swift in Sources */,
+				043C8F33275436B1008FF723 /* Direction.swift in Sources */,
+				043C8F0A27541A4D008FF723 /* CalendarViewController.swift in Sources */,
+				043C8F3727543712008FF723 /* PermutationHelper.swift in Sources */,
 				043C8F0627541A4D008FF723 /* AppDelegate.swift in Sources */,
+				043C8F2527542CF3008FF723 /* DateHelper.swift in Sources */,
 				043C8F0827541A4D008FF723 /* SceneDelegate.swift in Sources */,
+				043C8F2D27543667008FF723 /* String+Ext.swift in Sources */,
+				043C8F2F27543679008FF723 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +378,7 @@
 				INFOPLIST_FILE = "Advent of Code 2021/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -345,6 +406,7 @@
 				INFOPLIST_FILE = "Advent of Code 2021/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

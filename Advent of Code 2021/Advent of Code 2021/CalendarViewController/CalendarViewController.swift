@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  CalendarViewController.swift
 //  Advent of Code 2021
 //
 //  Created by Geir-Kåre S. Wærp on 28/11/2021.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class CalendarViewController: UIViewController {
     // MARK: Variables
-    private let calendarDays: Set<Int> = [1]
+    private let calendarDays: Set<Int> = []
     
     // MARK: UI Components
     private let mainStackView: UIStackView = {
@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
     }()
     
     private let subStackViews: [UIStackView] = {
-        let stackViews = (0..<4).map( { _ -> UIStackView in
+        let stackViews: [UIStackView] = (0..<4).map( { _ in
             let stackView = UIStackView()
             stackView.translatesAutoresizingMaskIntoConstraints = false
             stackView.axis = .vertical
@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
         let title = String(format: "%2d", day)
         button.setTitle(title, for: .normal)
         button.tag = day
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         button.isEnabled = calendarDays.contains(day)
         return button
     }
@@ -80,12 +80,16 @@ class MainViewController: UIViewController {
         ])
     }
     
-    @objc private func didTapButton(sender: UIButton) {
-        let vcName = String(format: "Day%02dVC", sender.tag)
-        guard let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String else { fatalError() }
+    @objc private func buttonPressed(sender: UIButton) {
+        let dayString = String(format: "Day%02dVC", sender.tag)
+        guard let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String else { fatalError("No bundle name found!") }
+        
         let sanitizedName = appName.replacingOccurrences(of: " ", with: "_")
-        guard let vcType = NSClassFromString("\(sanitizedName).\(vcName)") as? UIViewController.Type else { fatalError() }
+        let vcName = "\(sanitizedName).\(dayString)"
+        guard let vcType = NSClassFromString(vcName) as? UIViewController.Type else { fatalError("No VC matching name '\(vcName)'") }
+        
         let vc = vcType.init()
+        vc.title = String(format: "Day %02d", sender.tag)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
