@@ -1,6 +1,6 @@
 //
 //  Day01VC.swift
-//  Advent of Code 2021
+//  AdventofCode2021
 //
 //  Created by Geir-Kåre S. Wærp on 01/12/2021.
 //

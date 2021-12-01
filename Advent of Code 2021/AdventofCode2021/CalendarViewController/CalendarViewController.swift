@@ -1,6 +1,6 @@
 //
 //  CalendarViewController.swift
-//  Advent of Code 2021
+//  AdventofCode2021
 //
 //  Created by Geir-Kåre S. Wærp on 28/11/2021.
 //
@@ -49,7 +49,7 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Advent of Code 2021"
+        title = "AdventofCode2021"
         
         setupUI()
     }
