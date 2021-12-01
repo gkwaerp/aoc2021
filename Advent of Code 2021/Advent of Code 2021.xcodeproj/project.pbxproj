@@ -28,6 +28,8 @@
 		043C8F3B27543747008FF723 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F3A27543747008FF723 /* Image.swift */; };
 		043C8F3D2754377C008FF723 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F3C2754377C008FF723 /* Node.swift */; };
 		043C8F4427543DA6008FF723 /* AdventDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F4327543DA6008FF723 /* AdventDay.swift */; };
+		04FF9041275763F400E0409D /* Day01VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF9040275763F400E0409D /* Day01VC.swift */; };
+		04FF90432757667E00E0409D /* Day01Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04FF90422757667D00E0409D /* Day01Input.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		043C8F3A27543747008FF723 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		043C8F3C2754377C008FF723 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		043C8F4327543DA6008FF723 /* AdventDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventDay.swift; sourceTree = "<group>"; };
+		04FF9040275763F400E0409D /* Day01VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day01VC.swift; sourceTree = "<group>"; };
+		04FF90422757667D00E0409D /* Day01Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day01Input.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 		043C8F0427541A4D008FF723 /* Advent of Code 2021 */ = {
 			isa = PBXGroup;
 			children = (
+				04FF903E275763E200E0409D /* Days */,
 				043C8F4227543C70008FF723 /* Extensions */,
 				043C8F1F27542578008FF723 /* Helpers */,
 				043C8F1A27541AF6008FF723 /* CalendarViewController */,
@@ -142,6 +147,23 @@
 				043C8F2C27543667008FF723 /* String+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		04FF903E275763E200E0409D /* Days */ = {
+			isa = PBXGroup;
+			children = (
+				04FF903F275763E900E0409D /* Day01 */,
+			);
+			path = Days;
+			sourceTree = "<group>";
+		};
+		04FF903F275763E900E0409D /* Day01 */ = {
+			isa = PBXGroup;
+			children = (
+				04FF9040275763F400E0409D /* Day01VC.swift */,
+				04FF90422757667D00E0409D /* Day01Input.txt */,
+			);
+			path = Day01;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +226,7 @@
 			files = (
 				043C8F1227541A4F008FF723 /* LaunchScreen.storyboard in Resources */,
 				043C8F0F27541A4F008FF723 /* Assets.xcassets in Resources */,
+				04FF90432757667E00E0409D /* Day01Input.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +249,7 @@
 				043C8F27275435F5008FF723 /* FileLoader.swift in Sources */,
 				043C8F2327542BE3008FF723 /* UIView+Ext.swift in Sources */,
 				043C8F33275436B1008FF723 /* Direction.swift in Sources */,
+				04FF9041275763F400E0409D /* Day01VC.swift in Sources */,
 				043C8F0A27541A4D008FF723 /* CalendarViewController.swift in Sources */,
 				043C8F3727543712008FF723 /* PermutationHelper.swift in Sources */,
 				043C8F0627541A4D008FF723 /* AppDelegate.swift in Sources */,

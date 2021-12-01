@@ -30,7 +30,8 @@ extension String {
         return Int(self)
     }
     
-    var asStringArray: [String] {
+    /// "Character" array, to index into a string
+    func convertToStringArray() -> [String] {
         return self.map({"\($0)"})
     }
     
