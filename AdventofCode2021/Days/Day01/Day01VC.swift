@@ -18,44 +18,21 @@ class Day01VC: AoCVC, AdventDay {
     }
     
     func solvePart1() -> String {
-        let result = countIncreases(array: input, windowSize: 1)
+        let result = countIncreases(array: input, offset: 1)
         return "\(result)"
     }
     
     func solvePart2() -> String {
-        let result = countIncreases(array: input, windowSize: 3)
+        let result = countIncreases(array: input, offset: 3)
         return "\(result)"
     }
     
-    private func countIncreases(array: [Int], windowSize: Int) -> Int {
-        let arrayToUse = convertToSlidingWindow(array: array, size: windowSize)
-        
-        var numIncreases = 0
-        var prevValue: Int? = nil
-        arrayToUse.forEach { value in
-            if let prevValue = prevValue {
-                if value > prevValue {
-                    numIncreases += 1
-                }
-            }
-            prevValue = value
+    private func countIncreases(array: [Int], offset: Int) -> Int {
+        return array.enumerated().reduce(into: 0) { partialResult, iterator in
+            guard iterator.offset + offset < array.count,
+                  array[iterator.offset + offset] > iterator.element else { return }
+            partialResult += 1
         }
-        
-        return numIncreases
-    }
-    
-    private func convertToSlidingWindow(array: [Int], size: Int) -> [Int] {
-        guard size > 1 else { return array }
-        var newArray: [Int] = []
-        
-        for i in 0..<array.count {
-            let lastIndex = i + size - 1
-            guard (lastIndex) < array.count else { break }
-            let newValue = array[i...lastIndex].reduce(0, +)
-            newArray.append(newValue)
-        }
-        
-        return newArray
     }
 }
 
@@ -76,10 +53,10 @@ extension Day01VC {
         """.components(separatedBy: "\n")
             .map({Int($0)!})
         
-        let result = countIncreases(array: input, windowSize: 1)
+        let result = countIncreases(array: input, offset: 1)
         assert(result == 7)
         
-        let result2 = countIncreases(array: input, windowSize: 3)
+        let result2 = countIncreases(array: input, offset: 3)
         assert(result2 == 5)
     }
 }
