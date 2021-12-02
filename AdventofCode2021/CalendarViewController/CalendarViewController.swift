@@ -9,7 +9,7 @@ import UIKit
 
 class CalendarViewController: UIViewController {
     // MARK: Variables
-    private let calendarDays: Set<Int> = [1]
+    private let calendarDays: Set<Int> = [1, 2]
     
     // MARK: UI Components
     private let mainStackView: UIStackView = {
@@ -93,4 +93,3 @@ class CalendarViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
-

@@ -28,6 +28,8 @@
 		043C8F3B27543747008FF723 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F3A27543747008FF723 /* Image.swift */; };
 		043C8F3D2754377C008FF723 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F3C2754377C008FF723 /* Node.swift */; };
 		043C8F4427543DA6008FF723 /* AdventDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F4327543DA6008FF723 /* AdventDay.swift */; };
+		04982C8E2758B41900EA207B /* Day02VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04982C8D2758B41900EA207B /* Day02VC.swift */; };
+		04982C902758B75C00EA207B /* Day02Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04982C8F2758B75C00EA207B /* Day02Input.txt */; };
 		04FF9041275763F400E0409D /* Day01VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF9040275763F400E0409D /* Day01VC.swift */; };
 		04FF90432757667E00E0409D /* Day01Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04FF90422757667D00E0409D /* Day01Input.txt */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,8 @@
 		043C8F3A27543747008FF723 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		043C8F3C2754377C008FF723 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		043C8F4327543DA6008FF723 /* AdventDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventDay.swift; sourceTree = "<group>"; };
+		04982C8D2758B41900EA207B /* Day02VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day02VC.swift; sourceTree = "<group>"; };
+		04982C8F2758B75C00EA207B /* Day02Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day02Input.txt; sourceTree = "<group>"; };
 		04FF9040275763F400E0409D /* Day01VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day01VC.swift; sourceTree = "<group>"; };
 		04FF90422757667D00E0409D /* Day01Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day01Input.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,10 +153,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		04982C8C2758B40400EA207B /* Day02 */ = {
+			isa = PBXGroup;
+			children = (
+				04982C8F2758B75C00EA207B /* Day02Input.txt */,
+				04982C8D2758B41900EA207B /* Day02VC.swift */,
+			);
+			path = Day02;
+			sourceTree = "<group>";
+		};
 		04FF903E275763E200E0409D /* Days */ = {
 			isa = PBXGroup;
 			children = (
 				04FF903F275763E900E0409D /* Day01 */,
+				04982C8C2758B40400EA207B /* Day02 */,
 			);
 			path = Days;
 			sourceTree = "<group>";
@@ -224,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04982C902758B75C00EA207B /* Day02Input.txt in Resources */,
 				043C8F1227541A4F008FF723 /* LaunchScreen.storyboard in Resources */,
 				043C8F0F27541A4F008FF723 /* Assets.xcassets in Resources */,
 				04FF90432757667E00E0409D /* Day01Input.txt in Resources */,
@@ -239,6 +254,7 @@
 			files = (
 				043C8F2127542584008FF723 /* AoCVC.swift in Sources */,
 				043C8F4427543DA6008FF723 /* AdventDay.swift in Sources */,
+				04982C8E2758B41900EA207B /* Day02VC.swift in Sources */,
 				043C8F3B27543747008FF723 /* Image.swift in Sources */,
 				043C8F3927543730008FF723 /* TravellingSalesmanHelper.swift in Sources */,
 				043C8F35275436ED008FF723 /* IntAStar.swift in Sources */,
@@ -399,7 +415,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UMDMXH9PFW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "AdventofCode2021/Info.plist";
+				INFOPLIST_FILE = AdventofCode2021/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -427,7 +443,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UMDMXH9PFW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "AdventofCode2021/Info.plist";
+				INFOPLIST_FILE = AdventofCode2021/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
