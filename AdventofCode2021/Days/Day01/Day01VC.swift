@@ -18,19 +18,19 @@ class Day01VC: AoCVC, AdventDay {
     }
     
     func solvePart1() -> String {
-        let result = countIncreases(array: input, offset: 1)
+        let result = countIncreases(in: input, withStepSize: 1)
         return "\(result)"
     }
     
     func solvePart2() -> String {
-        let result = countIncreases(array: input, offset: 3)
+        let result = countIncreases(in: input, withStepSize: 3)
         return "\(result)"
     }
     
-    private func countIncreases(array: [Int], offset: Int) -> Int {
+    private func countIncreases(in array: [Int], withStepSize stepSize: Int) -> Int {
         return array.enumerated().reduce(into: 0) { partialResult, iterator in
-            guard iterator.offset + offset < array.count,
-                  array[iterator.offset + offset] > iterator.element else { return }
+            guard iterator.offset + stepSize < array.count,
+                  array[iterator.offset + stepSize] > iterator.element else { return }
             partialResult += 1
         }
     }
@@ -53,10 +53,10 @@ extension Day01VC {
         """.components(separatedBy: "\n")
             .map({Int($0)!})
         
-        let result = countIncreases(array: input, offset: 1)
+        let result = countIncreases(in: input, withStepSize: 1)
         assert(result == 7)
         
-        let result2 = countIncreases(array: input, offset: 3)
+        let result2 = countIncreases(in: input, withStepSize: 3)
         assert(result2 == 5)
     }
 }
