@@ -9,7 +9,7 @@ import UIKit
 
 class CalendarViewController: UIViewController {
     // MARK: Variables
-    private let calendarDays: Set<Int> = [1, 2]
+    private var calendarDays: [Int: UIViewController.Type] = [:]
     
     // MARK: UI Components
     private let mainStackView: UIStackView = {
@@ -40,8 +40,8 @@ class CalendarViewController: UIViewController {
         let title = String(format: "%2d", day)
         button.setTitle(title, for: .normal)
         button.tag = day
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        button.isEnabled = calendarDays.contains(day)
+        button.addTarget(self, action: #selector(dayButtonTapped), for: .touchUpInside)
+        button.isEnabled = calendarDays[day] != nil
         return button
     }
 
@@ -51,10 +51,23 @@ class CalendarViewController: UIViewController {
         
         title = "AdventofCode2021"
         
+        updateCalendarDays()
+        
         setupUI()
     }
     
     // MARK: UI Helpers
+    private func updateCalendarDays() {
+        guard let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String else { fatalError("No bundle name found!") }
+        let sanitizedName = appName.replacingOccurrences(of: " ", with: "_")
+        for i in 1...25 {
+            let dayString = String(format: "Day%02dVC", i)
+            let vcName = "\(sanitizedName).\(dayString)"
+            guard let vcType = NSClassFromString(vcName) as? UIViewController.Type else { continue }
+            calendarDays[i] = vcType
+        }
+    }
+    
     private func setupUI() {
         view.backgroundColor = .systemBackground
         
@@ -80,14 +93,8 @@ class CalendarViewController: UIViewController {
         ])
     }
     
-    @objc private func buttonPressed(sender: UIButton) {
-        let dayString = String(format: "Day%02dVC", sender.tag)
-        guard let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String else { fatalError("No bundle name found!") }
-        
-        let sanitizedName = appName.replacingOccurrences(of: " ", with: "_")
-        let vcName = "\(sanitizedName).\(dayString)"
-        guard let vcType = NSClassFromString(vcName) as? UIViewController.Type else { fatalError("No VC matching name '\(vcName)'") }
-        
+    @objc private func dayButtonTapped(sender: UIButton) {
+        guard let vcType = calendarDays[sender.tag] else { fatalError("Invalid button tapped") }
         let vc = vcType.init()
         vc.title = String(format: "Day %02d", sender.tag)
         navigationController?.pushViewController(vc, animated: true)

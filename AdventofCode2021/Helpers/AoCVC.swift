@@ -47,7 +47,7 @@ class AoCVC: UIViewController {
         button.setTitle("Initialization...", for: .disabled)
         button.setTitle("Solving...", for: .highlighted)
         button.tag = challenge
-        button.addTarget(self, action: #selector(self.buttonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(solutionButtonTapped), for: .touchUpInside)
         button.isEnabled = false
         return button
     }
@@ -103,7 +103,7 @@ class AoCVC: UIViewController {
         }
     }
     
-    @objc private func buttonPressed(sender: UIButton) {
+    @objc private func solutionButtonTapped(sender: UIButton) {
         let index = sender.tag
         sender.isEnabled = false
         sender.setTitle("Solving...", for: .disabled)
