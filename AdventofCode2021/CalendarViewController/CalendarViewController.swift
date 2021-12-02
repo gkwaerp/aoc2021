@@ -49,7 +49,7 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "AdventofCode2021"
+        title = "Advent of Code 2021"
         
         updateCalendarDays()
         
