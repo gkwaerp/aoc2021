@@ -89,4 +89,7 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+#Input files for the various days.
 *Input.txt
+
+.DS_Store
