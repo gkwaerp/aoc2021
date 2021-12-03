@@ -76,6 +76,7 @@ class AoCVC: UIViewController {
         if !hasAppeared {
             loadInput()
             runTests()
+            doPreSolutionWork()
             enableButtons()
             hasAppeared = true
         }
@@ -136,15 +137,21 @@ class AoCVC: UIViewController {
     
     // MARK: Misc
     private func loadInput() {
-        let loadTime = Date()
+        let time = Date()
         adventDay.loadInput()
-        print("Input loading complete. Time = \(DateHelper.getElapsedTimeString(from: loadTime))")
+        print("Input loading complete. Time = \(DateHelper.getElapsedTimeString(from: time))")
     }
     
     private func runTests() {
-        let testTime = Date()
+        let time = Date()
         adventDay.doTests()
-        print("Tests complete. Time: \(DateHelper.getElapsedTimeString(from: testTime))")
+        print("Tests complete. Time: \(DateHelper.getElapsedTimeString(from: time))")
+    }
+    
+    private func doPreSolutionWork() {
+        let time = Date()
+        adventDay.doPreSolutionWork()
+        print("Pre-solution work complete. Time = \(DateHelper.getElapsedTimeString(from: time))")
     }
     
     private func enableButtons() {

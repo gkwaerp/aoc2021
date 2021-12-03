@@ -10,6 +10,7 @@ import UIKit
 
 protocol AdventDay: UIViewController {
     func loadInput()
+    func doPreSolutionWork()
     func doTests()
     func solvePart1() -> String
     func solvePart2() -> String
@@ -18,6 +19,10 @@ protocol AdventDay: UIViewController {
 extension AdventDay {
     func loadInput() {
         print("No input today!")
+    }
+    
+    func doPreSolutionWork() {
+        print("Nothing to do before we can solve!")
     }
     
     func doTests() {
