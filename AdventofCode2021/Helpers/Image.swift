@@ -7,14 +7,13 @@
 
 import Foundation
 
-enum Color: String {
+enum Color {
     case black
     case white
     case transparent
     
-    static var printClosure: Grid.PrintBlock = { (value) in
-        guard let color = Color(rawValue: value) else { return nil }
-        switch color {
+    static var printClosure: ColorGrid.PrintBlock = { (value) in
+        switch value {
         case .black:
             return " "
         case .white:
@@ -27,7 +26,7 @@ enum Color: String {
 
 class Image {
     var size: IntPoint
-    var layers: [Grid]
+    var layers: [ColorGrid]
     
     var width: Int {
         return self.size.x
@@ -37,15 +36,15 @@ class Image {
         self.size.y
     }
 
-    init(size: IntPoint, values: [Grid.GridValue]) {
+    init(size: IntPoint, values: [Color]) {
         let valuesPerLayer = size.x * size.y
         let numLayers = values.count / valuesPerLayer
         var valuesToUse = values
-        var layers = [Grid]()
+        var layers = [ColorGrid]()
         for _ in 0..<numLayers {
             let layerData = Array(valuesToUse.prefix(valuesPerLayer))
             valuesToUse = Array(valuesToUse.dropFirst(valuesPerLayer))
-            let grid = Grid(size: size, values: layerData)
+            let grid = ColorGrid(size: size, values: layerData)
             layers.append(grid)
         }
 

@@ -7,8 +7,7 @@
 
 import Foundation
 
-class Grid {
-    typealias GridValue = String
+class Grid<GridValue> {
     typealias PrintBlock = (GridValue) -> (String?)
     var size: IntPoint
     var values: [GridValue]
@@ -33,16 +32,15 @@ class Grid {
         self.init(size: grid.size, values: grid.values)
     }
     
-    /// Each element in the array corresponds to 1 row
-    convenience init(stringArray: [String]) {
-        var values: [Grid.GridValue] = []
-        for line in stringArray {
-            for char in line {
-                values.append(String(char))
-            }
-        }
-        let size = IntPoint(x: stringArray.first!.count, y: stringArray.count)
-        self.init(size: size, values: values)
+    convenience init(values: [[GridValue]]) {
+        let numRows = values.count
+        guard let firstRow = values.first else { fatalError("Invalid grid, must contain at least 1 row.") }
+        
+        let size = IntPoint(x: firstRow.count, y: numRows)
+        let flattened = Array(values.joined())
+        guard size.x * size.y == flattened.count else { fatalError("Invalid grid, must be square.") }
+        
+        self.init(size: size, values: flattened)
     }
     
     init(size: IntPoint, values: [GridValue]) {
@@ -68,7 +66,7 @@ class Grid {
         return self.values[index]
     }
     
-    func setValue(at position: IntPoint, to value: String) {
+    func setValue(at position: IntPoint, to value: GridValue) {
         guard let index = self.getIndex(for: position) else { return }
         self.values[index] = value
     }
@@ -77,15 +75,11 @@ class Grid {
         return offsets.compactMap({return self.getValue(at: from + $0)})
     }
     
-    func getValues(matching filter: (Grid.GridValue) -> (Bool)) -> [Grid.GridValue] {
+    func getValues(matching filter: (GridValue) -> (Bool)) -> [GridValue] {
         return self.values.filter(filter)
     }
-    
-    private static var rawPrintClosure: PrintBlock = { (value) in
-        return value
-    }
 
-    func asText(printClosure: PrintBlock = Grid.rawPrintClosure) -> String {
+    func asText(printClosure: PrintBlock) -> String {
         var finalText = "\n"
         for y in 0..<self.height {
             for x in 0..<self.width {
@@ -100,16 +94,7 @@ class Grid {
     
     typealias WalkableBlock = (GridValue) -> (Bool)
     
-    private static var defaultWalkableBlock: WalkableBlock = { (gridValue) in
-        switch gridValue {
-        case "#":
-            return false
-        default:
-            return true
-        }
-    }
-    
-    func createAStarNodes(walkableBlock isWalkable: WalkableBlock = Grid.defaultWalkableBlock,
+    func createAStarNodes(walkableBlock isWalkable: WalkableBlock,
                           allowedDirections: [Direction] = Direction.allCases,
                           directionCosts: [Direction: Int] = [:],
                           defaultCost: Int = 1) -> Set<AStarNode> {
@@ -134,3 +119,45 @@ class Grid {
         return nodes
     }
 }
+
+extension Grid {
+    static func defaultPrintClosure() -> PrintBlock where GridValue == String {
+        return { value in
+            return value.description
+        }
+    }
+    
+    static func defaultPrintClosure() -> PrintBlock where GridValue == Int {
+        return { value in
+            return "\(value)"
+        }
+    }
+    
+    static func defaultWalkableBlock() -> WalkableBlock where GridValue == String {
+        return { value in
+            switch value {
+            case "#":
+                return false
+            default:
+                return true
+            }
+        }
+    }
+    
+    /// Each element in the array corresponds to 1 row
+    convenience init(stringArray: [String]) where GridValue == String {
+        var values: [GridValue] = []
+        for line in stringArray {
+            for char in line {
+                values.append(String(char))
+            }
+        }
+        let size = IntPoint(x: stringArray.first!.count, y: stringArray.count)
+        self.init(size: size, values: values)
+    }
+}
+
+
+typealias ColorGrid = Grid<Color>
+typealias IntGrid = Grid<Int>
+typealias StringGrid = Grid<String>
