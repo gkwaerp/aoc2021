@@ -105,7 +105,7 @@ class Day03VC: AoCVC, AdventDay {
         input = defaultInputFileString.loadAsTextStringArray().map({$0.convertToStringArray()})
     }
     
-    func doPreSolutionWork() {
+    func inputDidLoad() {
         diagnosticReport = DiagnosticReport(input: input)
     }
     

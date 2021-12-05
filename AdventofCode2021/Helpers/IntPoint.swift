@@ -50,11 +50,19 @@ class IntPoint: Equatable, Hashable, CustomStringConvertible {
     }
     
     func scaled(by scalar: Int) -> IntPoint {
-        return self.scaled(xScale: scalar, yScale: scalar)
+        return self.scaled(xScalar: scalar, yScalar: scalar)
     }
     
-    func scaled(xScale: Int, yScale: Int) -> IntPoint {
-        return IntPoint(x: self.x * xScale, y: self.y * yScale)
+    func scaled(xScalar: Int, yScalar: Int) -> IntPoint {
+        return IntPoint(x: self.x * xScalar, y: self.y * yScalar)
+    }
+    
+    func divided(by scalar: Int) -> IntPoint {
+        return self.divided(xScalar: scalar, yScalar: scalar)
+    }
+    
+    func divided(xScalar: Int, yScalar: Int) -> IntPoint {
+        return IntPoint(x: self.x / xScalar, y: self.y / yScalar)
     }
 
     func move(in direction: Direction, numSteps: Int) -> IntPoint {

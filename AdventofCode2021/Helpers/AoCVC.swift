@@ -150,7 +150,7 @@ class AoCVC: UIViewController {
     
     private func doPreSolutionWork() {
         let time = Date()
-        adventDay.doPreSolutionWork()
+        adventDay.inputDidLoad()
         print("Pre-solution work complete. Time = \(DateHelper.getElapsedTimeString(from: time))")
     }
     

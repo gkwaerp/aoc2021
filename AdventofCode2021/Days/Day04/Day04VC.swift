@@ -144,7 +144,7 @@ class Day04VC: AoCVC, AdventDay {
         input = defaultInputFileString.loadAsTextStringArray(separator: "\n\n")
     }
     
-    func doPreSolutionWork() {
+    func inputDidLoad() {
         bingoManager = BingoManager(input: input)
     }
     
