@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042E6EF22760A8D400FE7738 /* Day08VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6EF12760A8D400FE7738 /* Day08VC.swift */; };
+		042E6EF42760ABF800FE7738 /* Day08Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 042E6EF32760ABF800FE7738 /* Day08Input.txt */; };
 		043C8F0627541A4D008FF723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0527541A4D008FF723 /* AppDelegate.swift */; };
 		043C8F0827541A4D008FF723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0727541A4D008FF723 /* SceneDelegate.swift */; };
 		043C8F0A27541A4D008FF723 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0927541A4D008FF723 /* CalendarViewController.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042E6EF12760A8D400FE7738 /* Day08VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day08VC.swift; sourceTree = "<group>"; };
+		042E6EF32760ABF800FE7738 /* Day08Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day08Input.txt; sourceTree = "<group>"; };
 		043C8F0227541A4D008FF723 /* AdventofCode2021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdventofCode2021.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043C8F0527541A4D008FF723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043C8F0727541A4D008FF723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042E6EF02760A8AA00FE7738 /* Day08 */ = {
+			isa = PBXGroup;
+			children = (
+				042E6EF12760A8D400FE7738 /* Day08VC.swift */,
+				042E6EF32760ABF800FE7738 /* Day08Input.txt */,
+			);
+			path = Day08;
+			sourceTree = "<group>";
+		};
 		043C8EF927541A4D008FF723 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +250,7 @@
 				04982C9B275CD9EC00EA207B /* Day05 */,
 				04982CA0275DF3FA00EA207B /* Day06 */,
 				044AA70F275F5E7B00ECAF74 /* Day07 */,
+				042E6EF02760A8AA00FE7738 /* Day08 */,
 			);
 			path = Days;
 			sourceTree = "<group>";
@@ -312,6 +326,7 @@
 				04982C9A275B674C00EA207B /* Day04Input.txt in Resources */,
 				04982C902758B75C00EA207B /* Day02Input.txt in Resources */,
 				043C8F1227541A4F008FF723 /* LaunchScreen.storyboard in Resources */,
+				042E6EF42760ABF800FE7738 /* Day08Input.txt in Resources */,
 				044AA713275F638400ECAF74 /* Day07Input.txt in Resources */,
 				043C8F0F27541A4F008FF723 /* Assets.xcassets in Resources */,
 				04982C95275A5F2300EA207B /* Day03Input.txt in Resources */,
@@ -349,6 +364,7 @@
 				043C8F0A27541A4D008FF723 /* CalendarViewController.swift in Sources */,
 				043C8F3727543712008FF723 /* PermutationHelper.swift in Sources */,
 				043C8F0627541A4D008FF723 /* AppDelegate.swift in Sources */,
+				042E6EF22760A8D400FE7738 /* Day08VC.swift in Sources */,
 				043C8F2527542CF3008FF723 /* DateHelper.swift in Sources */,
 				043C8F0827541A4D008FF723 /* SceneDelegate.swift in Sources */,
 				043C8F2D27543667008FF723 /* String+Ext.swift in Sources */,
