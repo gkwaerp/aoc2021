@@ -92,9 +92,9 @@ class Day09VC: AoCVC, AdventDay {
     
     private func getSizeProduct(for basins: [Basin], prefix: Int) -> Int {
         return basins
-            .sorted(by: {$0.count > $1.count})
-            .prefix(prefix)
             .map({$0.count})
+            .sorted(by: >)
+            .prefix(prefix)
             .reduce(1, *)
     }
     
