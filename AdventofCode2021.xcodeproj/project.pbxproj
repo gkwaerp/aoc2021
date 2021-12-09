@@ -32,6 +32,8 @@
 		043C8F4427543DA6008FF723 /* AdventDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F4327543DA6008FF723 /* AdventDay.swift */; };
 		044AA711275F5E9900ECAF74 /* Day07VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AA710275F5E9900ECAF74 /* Day07VC.swift */; };
 		044AA713275F638400ECAF74 /* Day07Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 044AA712275F638400ECAF74 /* Day07Input.txt */; };
+		047972E12762063600C3490E /* Day09VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047972E02762063600C3490E /* Day09VC.swift */; };
+		047972E327620A0B00C3490E /* Day09Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 047972E227620A0B00C3490E /* Day09Input.txt */; };
 		04982C8E2758B41900EA207B /* Day02VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04982C8D2758B41900EA207B /* Day02VC.swift */; };
 		04982C902758B75C00EA207B /* Day02Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04982C8F2758B75C00EA207B /* Day02Input.txt */; };
 		04982C93275A5A7D00EA207B /* Day03VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04982C92275A5A7D00EA207B /* Day03VC.swift */; };
@@ -74,6 +76,8 @@
 		043C8F4327543DA6008FF723 /* AdventDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventDay.swift; sourceTree = "<group>"; };
 		044AA710275F5E9900ECAF74 /* Day07VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day07VC.swift; sourceTree = "<group>"; };
 		044AA712275F638400ECAF74 /* Day07Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day07Input.txt; sourceTree = "<group>"; };
+		047972E02762063600C3490E /* Day09VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day09VC.swift; sourceTree = "<group>"; };
+		047972E227620A0B00C3490E /* Day09Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day09Input.txt; sourceTree = "<group>"; };
 		04982C8D2758B41900EA207B /* Day02VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day02VC.swift; sourceTree = "<group>"; };
 		04982C8F2758B75C00EA207B /* Day02Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day02Input.txt; sourceTree = "<group>"; };
 		04982C92275A5A7D00EA207B /* Day03VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day03VC.swift; sourceTree = "<group>"; };
@@ -195,6 +199,15 @@
 			path = Day07;
 			sourceTree = "<group>";
 		};
+		047972DF2762062500C3490E /* Day09 */ = {
+			isa = PBXGroup;
+			children = (
+				047972E02762063600C3490E /* Day09VC.swift */,
+				047972E227620A0B00C3490E /* Day09Input.txt */,
+			);
+			path = Day09;
+			sourceTree = "<group>";
+		};
 		04982C8C2758B40400EA207B /* Day02 */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +264,7 @@
 				04982CA0275DF3FA00EA207B /* Day06 */,
 				044AA70F275F5E7B00ECAF74 /* Day07 */,
 				042E6EF02760A8AA00FE7738 /* Day08 */,
+				047972DF2762062500C3490E /* Day09 */,
 			);
 			path = Days;
 			sourceTree = "<group>";
@@ -329,6 +343,7 @@
 				042E6EF42760ABF800FE7738 /* Day08Input.txt in Resources */,
 				044AA713275F638400ECAF74 /* Day07Input.txt in Resources */,
 				043C8F0F27541A4F008FF723 /* Assets.xcassets in Resources */,
+				047972E327620A0B00C3490E /* Day09Input.txt in Resources */,
 				04982C95275A5F2300EA207B /* Day03Input.txt in Resources */,
 				04FF90432757667E00E0409D /* Day01Input.txt in Resources */,
 				04982C9F275CE2F400EA207B /* Day05Input.txt in Resources */,
@@ -362,6 +377,7 @@
 				043C8F33275436B1008FF723 /* Direction.swift in Sources */,
 				04FF9041275763F400E0409D /* Day01VC.swift in Sources */,
 				043C8F0A27541A4D008FF723 /* CalendarViewController.swift in Sources */,
+				047972E12762063600C3490E /* Day09VC.swift in Sources */,
 				043C8F3727543712008FF723 /* PermutationHelper.swift in Sources */,
 				043C8F0627541A4D008FF723 /* AppDelegate.swift in Sources */,
 				042E6EF22760A8D400FE7738 /* Day08VC.swift in Sources */,

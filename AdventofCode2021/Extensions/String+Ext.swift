@@ -13,7 +13,8 @@ extension String {
         return FileLoader.loadText(fileName: self, fileType: fileType).components(separatedBy: separator).filter({!$0.isEmpty || includeEmptyLines})
     }
     
-    func loadAsGrid(fileType: String? = "txt", separator: String = "\n") -> StringGrid {
+    /// Convenience, where every char is a new cell.
+    func loadAsStringGrid(fileType: String? = "txt", separator: String = "\n") -> StringGrid {
         let stringArray = self.loadAsTextStringArray(fileType: fileType, separator: separator)
         return StringGrid(stringArray: stringArray)
     }
