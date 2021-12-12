@@ -69,18 +69,18 @@ class Day12VC: AoCVC, AdventDay {
         
         
         func countUniquePaths(allowReentry: Bool) -> Int {
-            return computePaths(pathSoFar: ["start"], with: VisitHistory(allowReentry: allowReentry))
+            return computePaths(pathSoFar: [], newNode: "start", with: VisitHistory(allowReentry: allowReentry))
         }
         
-        private func computePaths(pathSoFar: [String], with history: VisitHistory) -> Int {
-            let node = pathSoFar.last!
+        private func computePaths(pathSoFar: Set<String>, newNode node: String, with history: VisitHistory) -> Int {
             var mutableHistory = history
             mutableHistory.visit(node: node)
             guard node != "end" else { return 1 }
             
+            let updatedPath = pathSoFar.union([node])
             let nodesToSearch = adjacencyList[node]!
                 .filter({mutableHistory.canVisit(node: $0)})
-            return nodesToSearch.map({computePaths(pathSoFar: pathSoFar + [$0], with: mutableHistory)})
+            return nodesToSearch.map({computePaths(pathSoFar: updatedPath, newNode: $0, with: mutableHistory)})
                 .reduce(0, +)
         }
     }
