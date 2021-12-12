@@ -9,52 +9,94 @@ import Foundation
 import UIKit
 
 class Day12VC: AoCVC, AdventDay {
-    private class CaveLayout {
-        struct VisitHistory {
-            let allowReentry: Bool
-            
-            private var history: [String: Int] = [:]
-            private var hasReentered: Bool = false
-            
-            init(allowReentry: Bool) {
-                self.allowReentry = allowReentry
-            }
-            
-            mutating func visit(node: String) {
-                history[node, default: 0] += 1
-                if node.lowercased() == node && node != "start" {
-                    if history[node]! == 2 {
-                        hasReentered = true
-                    }
-                }
-            }
-            
-            func canVisit(node: String) -> Bool {
-                if node == "start" {
-                    return false
-                }
-                
-                if node.uppercased() == node {
-                    return true
-                }
-                
-                let maxVisitCountSmallCaves = (allowReentry && !hasReentered) ? 2 : 1
-                return history[node, default: 0] < maxVisitCountSmallCaves
+    private class Cave: Hashable, Equatable {
+        static func == (lhs: Day12VC.Cave, rhs: Day12VC.Cave) -> Bool {
+            return lhs.name == rhs.name
+        }
+        
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(name)
+        }
+        
+        private var visitCount = 0
+        
+        enum CaveType {
+            case start
+            case small
+            case large
+            case end
+        }
+        
+        let name: String
+        let caveType: CaveType
+        
+        init(_ name: String) {
+            self.name = name
+            if name == "start" {
+                self.caveType = .start
+            } else if name == "end" {
+                self.caveType = .end
+            } else if name == name.lowercased() {
+                self.caveType = .small
+            } else {
+                self.caveType = .large
             }
         }
         
-        let nodes: Set<String>
-        let adjacencyList: [String: Set<String>]
+        enum VisitResult {
+            case normal
+            case usedReentry
+            case clearedReentry
+        }
+        
+        func visit() -> VisitResult {
+            visitCount += 1
+            return (caveType == .small && visitCount > 1) ? .usedReentry : .normal
+        }
+        
+        func unvisit() -> VisitResult {
+            visitCount -= 1
+            return (caveType == .small && visitCount > 0) ? .clearedReentry : .normal
+        }
+        
+        func canVisit(allowReentry: Bool, hasUsedReentry: Bool) -> Bool {
+            switch caveType {
+            case .start:
+                return false
+            case .small:
+                switch visitCount {
+                case 0:
+                    return true
+                case 1:
+                    return allowReentry && !hasUsedReentry
+                default:
+                    return false
+                }
+            case .large:
+                return true
+            case .end:
+                return true
+            }
+        }
+    }
+    
+    private class CaveLayout {
+        let nodes: Set<Cave>
+        let adjacencyList: [Cave: Set<Cave>]
         
         init(_ input: [String]) {
-            var nodes: Set<String> = []
-            var adjacencyList: [String: Set<String>] = [:]
+            var nodes: Set<Cave> = []
+            var adjacencyList: [Cave: Set<Cave>] = [:]
             
             for s in input {
                 let split = s.split(separator: "-")
                 
-                let from = String(split[0])
-                let to = String(split[1])
+                let fromString = String(split[0])
+                let toString = String(split[1])
+                
+                let from = nodes.first(where: {$0.name == fromString}) ?? Cave(fromString)
+                let to = nodes.first(where: {$0.name == toString}) ?? Cave(toString)
+                
                 nodes.insert(from)
                 nodes.insert(to)
                 
@@ -66,22 +108,30 @@ class Day12VC: AoCVC, AdventDay {
             self.adjacencyList = adjacencyList
         }
         
-        
+        private var hasUsedReentry = false
         
         func countUniquePaths(allowReentry: Bool) -> Int {
-            return computePaths(pathSoFar: [], newNode: "start", with: VisitHistory(allowReentry: allowReentry))
+            hasUsedReentry = false
+            return computePaths(newNode: Cave("start"), allowReentry: allowReentry)
         }
         
-        private func computePaths(pathSoFar: Set<String>, newNode node: String, with history: VisitHistory) -> Int {
-            var mutableHistory = history
-            mutableHistory.visit(node: node)
-            guard node != "end" else { return 1 }
+        private func computePaths(newNode node: Cave, allowReentry: Bool) -> Int {
+            guard node.caveType != .end else { return 1 }
             
-            let updatedPath = pathSoFar.union([node])
-            let nodesToSearch = adjacencyList[node]!
-                .filter({mutableHistory.canVisit(node: $0)})
-            return nodesToSearch.map({computePaths(pathSoFar: updatedPath, newNode: $0, with: mutableHistory)})
+            if node.visit() == .usedReentry {
+                hasUsedReentry = true
+            }
+            
+            let numPaths =  adjacencyList[node]!
+                .filter({$0.canVisit(allowReentry: allowReentry, hasUsedReentry: hasUsedReentry)})
+                .map({computePaths(newNode: $0, allowReentry: allowReentry)})
                 .reduce(0, +)
+            
+            if node.unvisit() == .clearedReentry {
+                hasUsedReentry = false
+            }
+            
+            return numPaths
         }
     }
     
