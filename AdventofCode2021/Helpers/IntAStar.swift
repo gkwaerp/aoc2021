@@ -59,7 +59,7 @@ class AStarNode {
 
 extension AStarNode: Hashable, Equatable {
     static func == (lhs: AStarNode, rhs: AStarNode) -> Bool {
-        return lhs.position == rhs.position
+        return lhs.position == rhs.position && lhs.f == rhs.f
     }
     
     func hash(into hasher: inout Hasher) {
@@ -68,7 +68,7 @@ extension AStarNode: Hashable, Equatable {
 }
 
 class IntAStar {
-    var closed = Set<IntPoint>()
+    var closed = Set<AStarNode>()
     
     // Returns whether path to end was found (only valid if end exists).
     // TraversalMap = All permissable locations.
@@ -76,6 +76,8 @@ class IntAStar {
     func computeShortestPaths(startNode: AStarNode, end: AStarNode? = nil) -> [IntPoint]? {
         var open: PriorityQueue<AStarNode> = .init(sort: { return $0.f < $1.f} )
         closed.removeAll(keepingCapacity: true)
+        
+        var bestSoFar: [AStarNode: Int] = [:]
 
         startNode.g = 0
         startNode.h = 0
@@ -83,7 +85,8 @@ class IntAStar {
         open.enqueue(startNode)
         
         while let current = open.dequeue() {
-            closed.insert(current.position)
+            closed.insert(current)
+            guard current.f <= bestSoFar[current, default: .max] else { continue }
             
             if let end = end {
                 if end.position == current.position {
@@ -99,23 +102,16 @@ class IntAStar {
             
             for edge in current.edges {
                 let potentialNode = edge.toNode
-                guard !closed.contains(potentialNode.position) else { continue }
+                guard !closed.contains(potentialNode) else { continue }
                 let g = current.g + edge.cost
+                let h = end.map({ potentialNode.position.manhattanDistance(to: $0.position)} ) ?? 0
                 
-                if let existingNodeIndex = open.index(of: potentialNode) {
-                    let existingNode = open.element(at: existingNodeIndex)
-                    if g < existingNode.g {
-                        potentialNode.g = g
-                        potentialNode.parent = current
-                        open.changePriority(index: existingNodeIndex, value: potentialNode)
-                    }
-                    
-                } else {
-                    potentialNode.parent = current
-                    potentialNode.g = g
-                    potentialNode.h = end.map({ potentialNode.position.manhattanDistance(to: $0.position)} ) ?? 0
-                    open.enqueue(potentialNode)
-                }
+                guard bestSoFar[potentialNode, default: .max] > g + h else { continue }
+                potentialNode.g = g
+                potentialNode.h = h
+                potentialNode.parent = current
+                bestSoFar[potentialNode] = potentialNode.f
+                open.enqueue(potentialNode)
             }
         }
         
