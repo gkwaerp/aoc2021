@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04254252276A8F7E00EFD8F4 /* Day15Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04254251276A8F7E00EFD8F4 /* Day15Input.txt */; };
+		04254254276AA05400EFD8F4 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04254253276AA05400EFD8F4 /* Heap.swift */; };
+		04254256276AA06A00EFD8F4 /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04254255276AA06A00EFD8F4 /* PriorityQueue.swift */; };
+		042A171E2769ED5500ADC718 /* Day15VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A171D2769ED5500ADC718 /* Day15VC.swift */; };
 		042E6EF22760A8D400FE7738 /* Day08VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6EF12760A8D400FE7738 /* Day08VC.swift */; };
 		042E6EF42760ABF800FE7738 /* Day08Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 042E6EF32760ABF800FE7738 /* Day08Input.txt */; };
 		043C8F0627541A4D008FF723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C8F0527541A4D008FF723 /* AppDelegate.swift */; };
@@ -59,6 +63,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04254251276A8F7E00EFD8F4 /* Day15Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day15Input.txt; sourceTree = "<group>"; };
+		04254253276AA05400EFD8F4 /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
+		04254255276AA06A00EFD8F4 /* PriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
+		042A171D2769ED5500ADC718 /* Day15VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day15VC.swift; sourceTree = "<group>"; };
 		042E6EF12760A8D400FE7738 /* Day08VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day08VC.swift; sourceTree = "<group>"; };
 		042E6EF32760ABF800FE7738 /* Day08Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day08Input.txt; sourceTree = "<group>"; };
 		043C8F0227541A4D008FF723 /* AdventofCode2021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdventofCode2021.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +131,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042A171C2769ED4300ADC718 /* Day15 */ = {
+			isa = PBXGroup;
+			children = (
+				042A171D2769ED5500ADC718 /* Day15VC.swift */,
+				04254251276A8F7E00EFD8F4 /* Day15Input.txt */,
+			);
+			path = Day15;
+			sourceTree = "<group>";
+		};
 		042E6EF02760A8AA00FE7738 /* Day08 */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +214,8 @@
 				043C8F2A2754363D008FF723 /* Misc.swift */,
 				043C8F3627543711008FF723 /* PermutationHelper.swift */,
 				043C8F3827543730008FF723 /* TravellingSalesmanHelper.swift */,
+				04254253276AA05400EFD8F4 /* Heap.swift */,
+				04254255276AA06A00EFD8F4 /* PriorityQueue.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -335,6 +354,7 @@
 				0443B7972766185B00B1F14E /* Day12 */,
 				044C826227673E9900E1BDDA /* Day13 */,
 				044C826727688A4B00E1BDDA /* Day14 */,
+				042A171C2769ED4300ADC718 /* Day15 */,
 			);
 			path = Days;
 			sourceTree = "<group>";
@@ -421,6 +441,7 @@
 				044C826627675F6200E1BDDA /* Day13Input.txt in Resources */,
 				04FF90432757667E00E0409D /* Day01Input.txt in Resources */,
 				04982C9F275CE2F400EA207B /* Day05Input.txt in Resources */,
+				04254252276A8F7E00EFD8F4 /* Day15Input.txt in Resources */,
 				044C826B276894D100E1BDDA /* Day14Input.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +458,9 @@
 				04982C98275B53B200EA207B /* Day04VC.swift in Sources */,
 				043C8F4427543DA6008FF723 /* AdventDay.swift in Sources */,
 				044C826427673EB300E1BDDA /* Day13VC.swift in Sources */,
+				04254256276AA06A00EFD8F4 /* PriorityQueue.swift in Sources */,
+				042A171E2769ED5500ADC718 /* Day15VC.swift in Sources */,
+				04254254276AA05400EFD8F4 /* Heap.swift in Sources */,
 				04982C93275A5A7D00EA207B /* Day03VC.swift in Sources */,
 				04982C8E2758B41900EA207B /* Day02VC.swift in Sources */,
 				043C8F3B27543747008FF723 /* Image.swift in Sources */,

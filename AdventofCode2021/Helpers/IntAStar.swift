@@ -27,9 +27,9 @@ extension AStarEdge: Hashable, Equatable {
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(self.fromNode)
-        hasher.combine(self.toNode)
-        hasher.combine(self.cost)
+        hasher.combine(fromNode)
+        hasher.combine(toNode)
+        hasher.combine(cost)
     }
 }
 
@@ -40,7 +40,7 @@ class AStarNode {
     
     /// Estimated cost
     var f: Int {
-        return self.g + self.h
+        return g + h
     }
     /// Current best cost from start to here
     var g: Int
@@ -63,39 +63,35 @@ extension AStarNode: Hashable, Equatable {
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(self.position)
+        hasher.combine(position)
     }
 }
 
 class IntAStar {
-    var open = Set<AStarNode>()
-    var closed = Set<AStarNode>()
+    var closed = Set<IntPoint>()
     
     // Returns whether path to end was found (only valid if end exists).
     // TraversalMap = All permissable locations.
     @discardableResult
     func computeShortestPaths(startNode: AStarNode, end: AStarNode? = nil) -> [IntPoint]? {
-        self.open.removeAll(keepingCapacity: true)
-        self.closed.removeAll(keepingCapacity: true)
+        var open: PriorityQueue<AStarNode> = .init(sort: { return $0.f < $1.f} )
+        closed.removeAll(keepingCapacity: true)
 
-        
         startNode.g = 0
         startNode.h = 0
         
-        self.open.insert(startNode)
+        open.enqueue(startNode)
         
-        while !self.open.isEmpty {
-            let current = self.open.min(by: {$0.f < $1.f})!
-            self.open.remove(current)
-            self.closed.insert(current)
+        while let current = open.dequeue() {
+            closed.insert(current.position)
             
             if let end = end {
                 if end.position == current.position {
                     var currentPathNode: AStarNode? = current
-                    var path = [current.position]
-                    while currentPathNode != nil {
-                        path.insert(currentPathNode!.position, at: 0)
-                        currentPathNode = currentPathNode?.parent
+                    var path: [IntPoint] = []
+                    while let n = currentPathNode {
+                        path.insert(n.position, at: 0)
+                        currentPathNode = n.parent
                     }
                     return path
                 }
@@ -103,25 +99,26 @@ class IntAStar {
             
             for edge in current.edges {
                 let potentialNode = edge.toNode
-                guard !self.closed.contains(potentialNode) else { continue }
-                potentialNode.g = current.g + edge.cost
-                if let end = end {
-                    potentialNode.h = potentialNode.position.manhattanDistance(to: end.position)
-                } else {
-                    potentialNode.h = 0
-                }
-                potentialNode.parent = current
+                guard !closed.contains(potentialNode.position) else { continue }
+                let g = current.g + edge.cost
                 
-                if let existingNode = self.open.first(where: {$0.position == potentialNode.position}) {
-                    if potentialNode.g < existingNode.g {
-                        existingNode.g = potentialNode.g
-                        existingNode.parent = current
+                if let existingNodeIndex = open.index(of: potentialNode) {
+                    let existingNode = open.element(at: existingNodeIndex)
+                    if g < existingNode.g {
+                        potentialNode.g = g
+                        potentialNode.parent = current
+                        open.changePriority(index: existingNodeIndex, value: potentialNode)
                     }
+                    
                 } else {
-                    self.open.insert(potentialNode)
+                    potentialNode.parent = current
+                    potentialNode.g = g
+                    potentialNode.h = end.map({ potentialNode.position.manhattanDistance(to: $0.position)} ) ?? 0
+                    open.enqueue(potentialNode)
                 }
             }
         }
+        
         return nil
     }
 }

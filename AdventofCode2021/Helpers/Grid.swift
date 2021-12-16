@@ -94,10 +94,12 @@ class Grid<GridValue> {
     
     typealias WalkableBlock = (GridValue) -> (Bool)
     
+    ///FromNode
+    ///ToNode
+    typealias CostBlock = (IntPoint, IntPoint) -> Int
     func createAStarNodes(walkableBlock isWalkable: WalkableBlock,
                           allowedDirections: [Direction] = Direction.allCases,
-                          directionCosts: [Direction: Int] = [:],
-                          defaultCost: Int = 1) -> Set<AStarNode> {
+                          costBlock: CostBlock) -> Set<AStarNode> {
         var nodes = Set<AStarNode>()
         for point in self.gridPoints {
             guard let gridValue = self.getValue(at: point) else { continue }
@@ -112,7 +114,7 @@ class Grid<GridValue> {
                 guard let newValue = self.getValue(at: newPosition), isWalkable(newValue) else { continue }
                 
                 let newNode = nodes.first(where: {$0.position == newPosition})!
-                let cost = directionCosts[direction, default: defaultCost]
+                let cost = costBlock(node.position, newPosition)
                 node.edges.insert(AStarEdge(from: node, to: newNode, cost: cost))
             }
         }
