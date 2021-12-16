@@ -10,6 +10,8 @@
 		04254252276A8F7E00EFD8F4 /* Day15Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04254251276A8F7E00EFD8F4 /* Day15Input.txt */; };
 		04254254276AA05400EFD8F4 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04254253276AA05400EFD8F4 /* Heap.swift */; };
 		04254256276AA06A00EFD8F4 /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04254255276AA06A00EFD8F4 /* PriorityQueue.swift */; };
+		04289933276BA2CF00981B4D /* Day16VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04289932276BA2CF00981B4D /* Day16VC.swift */; };
+		04289935276BD48200981B4D /* Day16Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04289934276BD48200981B4D /* Day16Input.txt */; };
 		042A171E2769ED5500ADC718 /* Day15VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A171D2769ED5500ADC718 /* Day15VC.swift */; };
 		042E6EF22760A8D400FE7738 /* Day08VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6EF12760A8D400FE7738 /* Day08VC.swift */; };
 		042E6EF42760ABF800FE7738 /* Day08Input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 042E6EF32760ABF800FE7738 /* Day08Input.txt */; };
@@ -66,6 +68,8 @@
 		04254251276A8F7E00EFD8F4 /* Day15Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day15Input.txt; sourceTree = "<group>"; };
 		04254253276AA05400EFD8F4 /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		04254255276AA06A00EFD8F4 /* PriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
+		04289932276BA2CF00981B4D /* Day16VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day16VC.swift; sourceTree = "<group>"; };
+		04289934276BD48200981B4D /* Day16Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day16Input.txt; sourceTree = "<group>"; };
 		042A171D2769ED5500ADC718 /* Day15VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day15VC.swift; sourceTree = "<group>"; };
 		042E6EF12760A8D400FE7738 /* Day08VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day08VC.swift; sourceTree = "<group>"; };
 		042E6EF32760ABF800FE7738 /* Day08Input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day08Input.txt; sourceTree = "<group>"; };
@@ -131,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04289931276BA2B600981B4D /* Day16 */ = {
+			isa = PBXGroup;
+			children = (
+				04289932276BA2CF00981B4D /* Day16VC.swift */,
+				04289934276BD48200981B4D /* Day16Input.txt */,
+			);
+			path = Day16;
+			sourceTree = "<group>";
+		};
 		042A171C2769ED4300ADC718 /* Day15 */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +368,7 @@
 				044C826227673E9900E1BDDA /* Day13 */,
 				044C826727688A4B00E1BDDA /* Day14 */,
 				042A171C2769ED4300ADC718 /* Day15 */,
+				04289931276BA2B600981B4D /* Day16 */,
 			);
 			path = Days;
 			sourceTree = "<group>";
@@ -433,6 +447,7 @@
 				0491034C27635D6700BFE8A4 /* Day10Input.txt in Resources */,
 				0443B79B27661A8800B1F14E /* Day12Input.txt in Resources */,
 				043C8F1227541A4F008FF723 /* LaunchScreen.storyboard in Resources */,
+				04289935276BD48200981B4D /* Day16Input.txt in Resources */,
 				042E6EF42760ABF800FE7738 /* Day08Input.txt in Resources */,
 				044AA713275F638400ECAF74 /* Day07Input.txt in Resources */,
 				043C8F0F27541A4F008FF723 /* Assets.xcassets in Resources */,
@@ -461,6 +476,7 @@
 				04254256276AA06A00EFD8F4 /* PriorityQueue.swift in Sources */,
 				042A171E2769ED5500ADC718 /* Day15VC.swift in Sources */,
 				04254254276AA05400EFD8F4 /* Heap.swift in Sources */,
+				04289933276BA2CF00981B4D /* Day16VC.swift in Sources */,
 				04982C93275A5A7D00EA207B /* Day03VC.swift in Sources */,
 				04982C8E2758B41900EA207B /* Day02VC.swift in Sources */,
 				043C8F3B27543747008FF723 /* Image.swift in Sources */,

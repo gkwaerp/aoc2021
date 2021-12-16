@@ -7,15 +7,15 @@
 
 import Foundation
 
-class Grid<GridValue: Hashable> {
+class Grid<GridValue> {
     typealias PrintBlock = (GridValue) -> (String?)
     typealias GridStorage = [IntPoint: GridValue]
     private var storage: GridStorage
     
     var size: IntPoint
     
-    var values: Set<GridValue> {
-        return Set(storage.values)
+    var values: GridStorage.Values {
+        return storage.values
     }
     
     var width: Int {
@@ -119,7 +119,10 @@ class Grid<GridValue: Hashable> {
         }
         return finalText.trimmingCharacters(in: .whitespacesAndNewlines)
     }
-    
+}
+
+// A*
+extension Grid {
     typealias WalkableBlock = (GridValue) -> (Bool)
     
     ///FromNode
@@ -127,7 +130,7 @@ class Grid<GridValue: Hashable> {
     typealias CostBlock = (IntPoint, IntPoint) -> Int
     func createAStarNodes(walkableBlock isWalkable: WalkableBlock,
                           allowedDirections: [Direction] = Direction.allCases,
-                          costBlock: CostBlock) -> [IntPoint: AStarNode] {
+                          costBlock: CostBlock) -> [IntPoint: AStarNode] where GridValue: Hashable {
         var nodes: [IntPoint: AStarNode] = [:]
         for point in self.gridPoints {
             guard let gridValue = self.getValue(at: point) else { continue }
@@ -149,6 +152,7 @@ class Grid<GridValue: Hashable> {
         return nodes
     }
 }
+
 
 extension Grid {
     static func defaultPrintClosure() -> PrintBlock where GridValue == String {
