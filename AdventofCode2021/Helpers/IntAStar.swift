@@ -68,7 +68,7 @@ extension AStarNode: Hashable, Equatable {
 }
 
 class IntAStar {
-    var closed = Set<AStarNode>()
+    var closed = Set<IntPoint>()
     
     // Returns whether path to end was found (only valid if end exists).
     // TraversalMap = All permissable locations.
@@ -85,7 +85,7 @@ class IntAStar {
         open.enqueue(startNode)
         
         while let current = open.dequeue() {
-            closed.insert(current)
+            closed.insert(current.position)
             guard current.f <= bestSoFar[current, default: .max] else { continue }
             
             if let end = end {
@@ -102,7 +102,7 @@ class IntAStar {
             
             for edge in current.edges {
                 let potentialNode = edge.toNode
-                guard !closed.contains(potentialNode) else { continue }
+                guard !closed.contains(potentialNode.position) else { continue }
                 let g = current.g + edge.cost
                 let h = end.map({ potentialNode.position.manhattanDistance(to: $0.position)} ) ?? 0
                 

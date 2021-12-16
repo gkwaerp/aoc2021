@@ -7,10 +7,16 @@
 
 import Foundation
 
-class Grid<GridValue> {
+class Grid<GridValue: Hashable> {
     typealias PrintBlock = (GridValue) -> (String?)
+    typealias GridStorage = [IntPoint: GridValue]
+    private var storage: GridStorage
+    
     var size: IntPoint
-    var values: [GridValue]
+    
+    var values: Set<GridValue> {
+        return Set(storage.values)
+    }
     
     var width: Int {
         return self.size.x
@@ -23,15 +29,20 @@ class Grid<GridValue> {
         self.size.gridPoints
     }()
     
+    init(size: IntPoint, storage: GridStorage) {
+        guard size.x > 0, size.y > 0 else { fatalError("Invalid grid, size must be non-negative in both axes.") }
+        guard size.x * size.y == storage.count else { fatalError("Invalid grid, size must match element count.") }
+        self.size = size
+        self.storage = storage
+    }
+    
     convenience init(size: IntPoint, fillWith value: GridValue) {
-        let values: [GridValue] = Array(repeating: value, count: size.x * size.y)
+        guard size.x > 0, size.y > 0 else { fatalError("Invalid grid, size must be non-negative in both axes.") }
+        let values: [GridValue] = (0..<size.magnitude()).map({ _ in return value })
         self.init(size: size, values: values)
     }
     
-    convenience init(grid: Grid) {
-        self.init(size: grid.size, values: grid.values)
-    }
-    
+    /// Square grid
     convenience init(values: [[GridValue]]) {
         let numRows = values.count
         guard let firstRow = values.first else { fatalError("Invalid grid, must contain at least 1 row.") }
@@ -40,35 +51,52 @@ class Grid<GridValue> {
         let flattened = Array(values.joined())
         guard size.x * size.y == flattened.count else { fatalError("Invalid grid, must be square.") }
         
-        self.init(size: size, values: flattened)
+        var storage: GridStorage = [:]
+        for y in 0..<values.count {
+            for x in 0..<values[y].count {
+                storage[IntPoint(x: x, y: y)] = values[y][x]
+            }
+        }
+        
+        self.init(size: size, storage: storage)
     }
     
-    init(size: IntPoint, values: [GridValue]) {
+    convenience init(grid: Grid) {
+        self.init(size: grid.size, storage: grid.storage)
+    }
+    
+    convenience init(size: IntPoint, values: [GridValue]) {
         guard size.x > 0, size.y > 0 else { fatalError("Invalid grid, size must be non-negative in both axes.") }
-        guard size.x * size.y == values.count else { fatalError("Invalid grid, values doesn't match size." ) }
-        self.size = size
-        self.values = values
+        guard size.x * size.y == values.count else { fatalError("Invalid grid, size must match element count.") }
+
+        var storage: GridStorage = [:]
+        for i in 0..<values.count {
+            let x = i % size.x
+            let y = i / size.x
+            storage[IntPoint(x: x, y: y)] = values[i]
+        }
+        
+        self.init(size: size, storage: storage)
     }
     
-    func updateValues(_ newValues: [GridValue]) {
-        guard newValues.count == self.values.count else { fatalError("Can't change size of grid after creation!") }
-        self.values = newValues
+    func updateStorage(_ newStorage: GridStorage) {
+        self.storage = newStorage
     }
     
-    func getIndex(for position: IntPoint) -> Int? {
-        guard position.x < self.width, position.x >= 0 else { return nil }
-        guard position.y < self.height, position.y >= 0 else { return nil }
-        return position.y * self.width + position.x
+    func isWithinBounds(_ position: IntPoint) -> Bool {
+        guard position.x < self.width, position.x >= 0 else { return false }
+        guard position.y < self.height, position.y >= 0 else { return false }
+        return true
     }
     
     func getValue(at position: IntPoint) -> GridValue? {
-        guard let index = self.getIndex(for: position) else { return nil }
-        return self.values[index]
+        guard isWithinBounds(position) else { return nil }
+        return self.storage[position]
     }
     
     func setValue(at position: IntPoint, to value: GridValue) {
-        guard let index = self.getIndex(for: position) else { return }
-        self.values[index] = value
+        guard isWithinBounds(position) else { return }
+        self.storage[position] = value
     }
     
     func getValues(offset from: IntPoint, offsets: [IntPoint]) -> [GridValue] {
@@ -99,21 +127,21 @@ class Grid<GridValue> {
     typealias CostBlock = (IntPoint, IntPoint) -> Int
     func createAStarNodes(walkableBlock isWalkable: WalkableBlock,
                           allowedDirections: [Direction] = Direction.allCases,
-                          costBlock: CostBlock) -> Set<AStarNode> {
-        var nodes = Set<AStarNode>()
+                          costBlock: CostBlock) -> [IntPoint: AStarNode] {
+        var nodes: [IntPoint: AStarNode] = [:]
         for point in self.gridPoints {
             guard let gridValue = self.getValue(at: point) else { continue }
             if isWalkable(gridValue) {
-                nodes.insert(AStarNode(position: point))
+                nodes[point] = AStarNode(position: point)
             }
         }
         
-        for node in nodes {
+        for node in nodes.values {
             for direction in allowedDirections {
                 let newPosition = node.position + direction.movementVector
                 guard let newValue = self.getValue(at: newPosition), isWalkable(newValue) else { continue }
                 
-                let newNode = nodes.first(where: {$0.position == newPosition})!
+                let newNode = nodes[newPosition]!
                 let cost = costBlock(node.position, newPosition)
                 node.edges.insert(AStarEdge(from: node, to: newNode, cost: cost))
             }

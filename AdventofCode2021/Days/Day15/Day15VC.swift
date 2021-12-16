@@ -46,8 +46,8 @@ class Day15VC: AoCVC, AdventDay {
             return grid.getValue(at: toPosition)!
         })
         
-        let startNode = astarNodes.first(where: {$0.position == startPos})!
-        let endNode = astarNodes.first(where: {$0.position == endPos})
+        let startNode = astarNodes[startPos]!
+        let endNode = astarNodes[endPos]!
         
         let aStar = IntAStar()
         let path = aStar.computeShortestPaths(startNode: startNode, end: endNode)!
